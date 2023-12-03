@@ -3,7 +3,7 @@
 //  iTour
 //
 //  Created by Алексей Пурис on 02.12.2023.
-//
+//  
 
 import SwiftUI
 
