@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @Environment(\.modelContext) var modelContext
     //Add our database. Macro @Query readout info from DB and than can display it
     @Query var destinations: [Destination]
     
@@ -24,9 +25,22 @@ struct ContentView: View {
                         }
                     }
                 }
+                .navigationTitle("iTourApp")
+                .toolbar {
+                    Button("Add samples", action: addSamples)
+                }
             }
         }
         .padding()
+    }
+    
+    func addSamples() {
+        let rome = Destination(name: "Rome")
+        let florence = Destination(name: "Florence")
+        let naples = Destination(name: "Naples")
+        modelContext.insert(rome)
+        modelContext.insert(florence)
+        modelContext.insert(naples)
     }
 }
 
