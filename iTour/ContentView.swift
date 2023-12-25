@@ -28,6 +28,7 @@ struct ContentView: View {
                 .navigationTitle("iTourApp")
                 .toolbar {
                     Button("Add samples", action: addSamples)
+                    Button("Del samples", action: removeSamples)
                 }
             }
         }
@@ -42,6 +43,8 @@ struct ContentView: View {
         modelContext.insert(florence)
         modelContext.insert(naples)
     }
+    
+    
 }
 
 #Preview {
