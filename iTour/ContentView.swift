@@ -24,11 +24,11 @@ struct ContentView: View {
                             Text(destination.date.formatted(date: .long, time: .shortened))
                         }
                     }
+                    .onDelete(perform: deleteDestinations)
                 }
                 .navigationTitle("iTourApp")
                 .toolbar {
                     Button("Add samples", action: addSamples)
-                    Button("Del samples", action: removeSamples)
                 }
             }
         }
@@ -42,6 +42,13 @@ struct ContentView: View {
         modelContext.insert(rome)
         modelContext.insert(florence)
         modelContext.insert(naples)
+    }
+    
+    func deleteDestinations(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let destination = destinations[index]
+            modelContext.delete(destination)
+        }
     }
     
     
